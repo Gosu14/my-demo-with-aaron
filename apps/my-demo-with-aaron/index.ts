@@ -6,13 +6,6 @@ const myTableName = "my_storage_table";
 /**
  * @query
  */
-export function pong(): void {
-    Notifier.sendString("ping");
-}
-
-/**
- * @query
- */
 export function ping(): void {
     Notifier.sendString("pong-pong");
 }
