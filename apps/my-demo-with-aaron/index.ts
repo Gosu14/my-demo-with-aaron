@@ -1,5 +1,5 @@
 import { Notifier, Ledger, JSON } from '@klave/sdk';
-import { FetchInput, FetchOutput, StoreInput, StoreOutput, ErrorMessage } from './types';
+import { FetchInput, FetchOutput, StoreInput, StoreOutput, ErrorMessage, testOutput } from './types';
 
 const myTableName = "my_storage_table";
 
@@ -47,5 +47,21 @@ export function storeValue(input: StoreInput): void {
     Notifier.sendJson<ErrorMessage>({
         success: false,
         message: `Missing value arguments`
+    });
+}
+
+//Create a Query that returns a Float64Array
+
+/**
+ * @query
+ */
+export function test(): void {
+    let array = new Float64Array(10);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = i;
+    }
+    Notifier.sendJson<testOutput>({
+        success: true,
+        array
     });
 }

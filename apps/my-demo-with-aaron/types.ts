@@ -27,3 +27,9 @@ export class StoreInput {
 export class StoreOutput {
     success!: boolean;
 }
+
+@serializable
+export class testOutput {
+    success!: boolean;
+    array!: Float64Array;
+}
